@@ -75,13 +75,19 @@ function gotData(data)
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);        
-        
+        var cell6 = row.insertCell(5);        
+        var cell7 = row.insertCell(6);        
+        var cell8 = row.insertCell(7);        
+
         cell1.innerHTML = i+1;
         
         cell2.innerHTML = getuser[keys[i]].name;        
         cell3.innerHTML = getuser[keys[i]].roll;
-        cell4.innerHTML = getuser[keys[i]].kiitemail;
-        cell5.innerHTML = getuser[keys[i]].choosedevent;        
+        cell4.innerHTML = getuser[keys[i]].school;
+        cell5.innerHTML = getuser[keys[i]].branch;        
+        cell6.innerHTML = getuser[keys[i]].kiitemail;
+        cell7.innerHTML = getuser[keys[i]].phone;
+        cell8.innerHTML = getuser[keys[i]].choosedevent;        
     }
 
         
