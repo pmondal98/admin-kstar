@@ -57,16 +57,16 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 }
 
-var Ref = firebase.database().ref('kstar_registration');
+var Ref1 = firebase.database().ref('kstar_registration');
 
-Ref.on('value', gotData, errData);
+Ref1.on('value', gotData1, errData1);
 
-function gotData(data)
+function gotData1(data)
 {    
     var getuser=data.val();    
     var keys=Object.keys(getuser);
 
-    var table = document.getElementById("myTable");
+    var table = document.getElementById("myTable-registration");
     for(var i=0;i<keys.length; i++)
     {
   	    var row = table.insertRow(i);
@@ -93,7 +93,42 @@ function gotData(data)
         
 }
 
-function errData(data)
+function errData1(data)
+{
+    console.log("ERROR!!");
+}
+
+var Ref2 = firebase.database().ref('kstar_submission');
+
+Ref2.on('value', gotData2, errData2);
+
+function gotData2(data)
+{    
+    var getuser=data.val();    
+    var keys=Object.keys(getuser);
+
+    var table = document.getElementById("myTable-submission");
+    for(var i=0;i<keys.length; i++)
+    {
+  	    var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);                     
+
+        cell1.innerHTML = i+1;
+        
+        cell2.innerHTML = getuser[keys[i]].name;        
+        cell3.innerHTML = getuser[keys[i]].roll;
+        cell4.innerHTML = getuser[keys[i]].choosedevent;        
+        cell5.innerHTML = getuser[keys[i]].submissionlink;        
+    }
+
+        
+}
+
+function errData2(data)
 {
     console.log("ERROR!!");
 }
